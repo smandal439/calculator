@@ -277,7 +277,7 @@ function scientificAppendFunction(name) {
     scientificCalc.expression = '0';
   }
 
-  if (scientificCalc.expression === '0' && !['sin(', 'cos(', 'tan(', 'log(', 'ln(', 'sqrt('].includes(name)) {
+  if (scientificCalc.expression === '0' && ['sin(', 'cos(', 'tan(', 'log(', 'ln(', 'sqrt(', 'π', 'e'].includes(name)) {
     scientificCalc.expression = '';
   }
 
