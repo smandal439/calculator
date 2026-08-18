@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator Hub</title>
+    <meta
+      name="description"
+      content="A merged calculator with standard, scientific, programmer, and age modes."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="app-header">
+        <h1>Calculator Hub</h1>
+        <div class="tab-bar" role="tablist" aria-label="Calculator modes">
+          <button class="tab active" type="button" data-tab="standard" role="tab" aria-selected="true">
+            Standard
+          </button>
+          <button class="tab" type="button" data-tab="scientific" role="tab" aria-selected="false">
+            Scientific
+          </button>
+          <button class="tab" type="button" data-tab="programmer" role="tab" aria-selected="false">
+            Programmer
+          </button>
+          <button class="tab" type="button" data-tab="age" role="tab" aria-selected="false">
+            Age
+          </button>
+        </div>
+      </header>
+
+      <section class="tab-panel active" id="standard-panel" role="tabpanel">
+        <div class="calculator-panel">
+          <div class="display">
+            <div class="previous-operand" id="standard-previous"></div>
+            <div class="current-operand" id="standard-current">0</div>
+          </div>
+          <div class="buttons standard-grid">
+            <button class="btn clear action" type="button" id="standard-clear">AC</button>
+            <button class="btn delete action" type="button" id="standard-delete">DEL</button>
+            <button class="btn operator action" type="button" data-operator="%">%</button>
+            <button class="btn operator action" type="button" data-operator="/">÷</button>
+
+            <button class="btn number" type="button" data-number="7">7</button>
+            <button class="btn number" type="button" data-number="8">8</button>
+            <button class="btn number" type="button" data-number="9">9</button>
+            <button class="btn operator action" type="button" data-operator="*">×</button>
+
+            <button class="btn number" type="button" data-number="4">4</button>
+            <button class="btn number" type="button" data-number="5">5</button>
+            <button class="btn number" type="button" data-number="6">6</button>
+            <button class="btn operator action" type="button" data-operator="-">−</button>
+
+            <button class="btn number" type="button" data-number="1">1</button>
+            <button class="btn number" type="button" data-number="2">2</button>
+            <button class="btn number" type="button" data-number="3">3</button>
+            <button class="btn operator action" type="button" data-operator="+">+</button>
+
+            <button class="btn number span-2" type="button" data-number="0">0</button>
+            <button class="btn number" type="button" data-number=".">.</button>
+            <button class="btn equals accent" type="button" id="standard-equals">=</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="scientific-panel" role="tabpanel">
+        <div class="calculator-panel scientific-panel">
+          <div class="display">
+            <div class="previous-operand" id="scientific-previous"></div>
+            <div class="current-operand" id="scientific-current">0</div>
+          </div>
+          <div class="buttons scientific-grid">
+            <button class="btn function" type="button" data-function="sin(" >sin</button>
+            <button class="btn function" type="button" data-function="cos(" >cos</button>
+            <button class="btn function" type="button" data-function="tan(" >tan</button>
+            <button class="btn action" type="button" id="scientific-clear">AC</button>
+            <button class="btn action" type="button" id="scientific-delete">DEL</button>
+
+            <button class="btn function" type="button" data-function="log(" >log</button>
+            <button class="btn function" type="button" data-function="ln(" >ln</button>
+            <button class="btn function" type="button" data-function="^">x^y</button>
+            <button class="btn function" type="button" data-function="(">(</button>
+            <button class="btn function" type="button" data-function=")">)</button>
+
+            <button class="btn function" type="button" data-function="sqrt(" >√</button>
+            <button class="btn number" type="button" data-number="7">7</button>
+            <button class="btn number" type="button" data-number="8">8</button>
+            <button class="btn number" type="button" data-number="9">9</button>
+            <button class="btn operator action" type="button" data-operator="/">÷</button>
+
+            <button class="btn function" type="button" data-number="π">π</button>
+            <button class="btn number" type="button" data-number="4">4</button>
+            <button class="btn number" type="button" data-number="5">5</button>
+            <button class="btn number" type="button" data-number="6">6</button>
+            <button class="btn operator action" type="button" data-operator="*">×</button>
+
+            <button class="btn function" type="button" data-number="e">e</button>
+            <button class="btn number" type="button" data-number="1">1</button>
+            <button class="btn number" type="button" data-number="2">2</button>
+            <button class="btn number" type="button" data-number="3">3</button>
+            <button class="btn operator action" type="button" data-operator="-">−</button>
+
+            <button class="btn operator action" type="button" data-operator="%">%</button>
+            <button class="btn number" type="button" data-number="0">0</button>
+            <button class="btn number" type="button" data-number=".">.</button>
+            <button class="btn equals accent" type="button" id="scientific-equals">=</button>
+            <button class="btn operator action" type="button" data-operator="+">+</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="programmer-panel" role="tabpanel">
+        <div class="calculator-panel programmer-panel">
+          <div class="programmer-toolbar">
+            <label class="base-select-label" for="programmer-base">Base</label>
+            <select id="programmer-base" aria-label="Select base">
+              <option value="2">Binary</option>
+              <option value="8">Octal</option>
+              <option value="10" selected>Decimal</option>
+              <option value="16">Hex</option>
+            </select>
+            <button class="btn action compact-btn" type="button" id="programmer-clear">AC</button>
+          </div>
+
+          <div class="display">
+            <div class="helper-label" id="programmer-label">DEC</div>
+            <div class="current-operand" id="programmer-current">0</div>
+          </div>
+
+          <div class="conversion-row">
+            <span>DEC: <strong id="programmer-dec">0</strong></span>
+            <span>BIN: <strong id="programmer-bin">0</strong></span>
+            <span>HEX: <strong id="programmer-hex">0</strong></span>
+          </div>
+
+          <div class="buttons programmer-grid">
+            <button class="btn action" type="button" data-programmer-op="AND">AND</button>
+            <button class="btn action" type="button" data-programmer-op="OR">OR</button>
+            <button class="btn action" type="button" data-programmer-op="XOR">XOR</button>
+            <button class="btn action" type="button" data-programmer-op="NOT">NOT</button>
+            <button class="btn action" type="button" id="programmer-delete">DEL</button>
+
+            <button class="btn operator action" type="button" data-programmer-op="<<">&lt;&lt;</button>
+            <button class="btn operator action" type="button" data-programmer-op=">>">&gt;&gt;</button>
+            <button class="btn operator action" type="button" data-programmer-op="/">÷</button>
+            <button class="btn operator action" type="button" data-programmer-op="*">×</button>
+            <button class="btn operator action" type="button" data-programmer-op="-">−</button>
+
+            <button class="btn number" type="button" data-programmer-digit="A">A</button>
+            <button class="btn number" type="button" data-programmer-digit="B">B</button>
+            <button class="btn number" type="button" data-programmer-digit="C">C</button>
+            <button class="btn number" type="button" data-programmer-digit="D">D</button>
+            <button class="btn operator action" type="button" data-programmer-op="+">+</button>
+
+            <button class="btn number" type="button" data-programmer-digit="E">E</button>
+            <button class="btn number" type="button" data-programmer-digit="F">F</button>
+            <button class="btn number" type="button" data-programmer-digit="7">7</button>
+            <button class="btn number" type="button" data-programmer-digit="8">8</button>
+            <button class="btn number" type="button" data-programmer-digit="9">9</button>
+
+            <button class="btn number" type="button" data-programmer-digit="4">4</button>
+            <button class="btn number" type="button" data-programmer-digit="5">5</button>
+            <button class="btn number" type="button" data-programmer-digit="6">6</button>
+            <button class="btn number" type="button" data-programmer-digit="1">1</button>
+            <button class="btn number" type="button" data-programmer-digit="2">2</button>
+
+            <button class="btn number span-2" type="button" data-programmer-digit="0">0</button>
+            <button class="btn number" type="button" data-programmer-digit="3">3</button>
+            <button class="btn equals accent" type="button" id="programmer-equals">=</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="age-panel" role="tabpanel">
+        <div class="calculator-panel age-panel">
+          <h2>Age Calculator</h2>
+          <div class="age-field">
+            <label for="birthdate">Date of birth</label>
+            <input type="date" id="birthdate" />
+          </div>
+
+          <label class="checkbox-row" for="use-current-date">
+            <input type="checkbox" id="use-current-date" checked />
+            <span>Use today as target date</span>
+          </label>
+
+          <div class="age-field hidden" id="target-date-group">
+            <label for="targetdate">Target date</label>
+            <input type="date" id="targetdate" />
+          </div>
+
+          <button class="btn equals accent full-width" type="button" id="age-calculate">Calculate Age</button>
+
+          <div class="result-box" id="age-result">Please enter your birth date.</div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
